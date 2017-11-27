@@ -33,7 +33,7 @@ It also has:
     
 Note:
 Open app/test.js and make sure the FROM address exists!
-It's displayed during boot and lookes like:
+It's displayed during boot and looks like:
 
     INFO [11-27|19:33:58] Unlocked account                         address=0x09c178815B0dd26576E1dD7Aba1720402f
 
