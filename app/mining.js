@@ -15,7 +15,7 @@ pendingTransactions = function() {
     console.log('Pending: ', result);
     if(miner.hashrate !== 0){
       console.log("Pending TX and not mining. Starting miner.");
-      miner.start(8); // Threads
+      miner.start(1); // Threads
     }
   });
   
