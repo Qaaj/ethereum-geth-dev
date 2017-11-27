@@ -1,3 +1,4 @@
+var debounce, eth, now;
 
 pendingTransactions = function() {
   if (!eth.pendingTransactions) {
@@ -26,5 +27,4 @@ pendingTransactions = function() {
       miner.stop();
     }
   });
-  
 })();

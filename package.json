@@ -8,6 +8,6 @@
   "scripts": {
     "test:tx": "node app/test.js",
     "docker:build": "./scripts/build.sh",
-    "start": "docker run -p 8545:8545 mordhau/ethereum-geth-dev"
+    "docker:start": "docker run -p 8545:8545 mordhau/ethereum-geth-dev"
   }
 }
