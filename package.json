@@ -5,7 +5,9 @@
   "dependencies": {
     "web3": "^0.17.0-alpha"
   },
-  "script": {
-    "start": "node app/test.js"
+  "scripts": {
+    "test:tx": "node app/test.js",
+    "docker:build": "./scripts/build.sh",
+    "start": "docker run -p 8545:8545 mordhau/ethereum-geth-dev"
   }
 }
