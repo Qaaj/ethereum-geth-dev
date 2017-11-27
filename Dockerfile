@@ -74,4 +74,4 @@ EXPOSE 30303
 
 RUN ls -al
 
-CMD ["/usr/bin/geth",  "--netrestrict", "127.0.0.1/8", "--datadir", ".", "--password", "config/password.txt", "--unlock", "0,1,2,3,4", "--rpc", "--rpcaddr", "0.0.0.0", "--rpc", "--rpccorsdomain", "http://localhost:8000", "js", "./js/mining.js"]
+CMD ["/usr/bin/geth",  "--datadir", ".", "--password", "config/password.txt", "--unlock", "0,1,2,3,4", "--rpc", "--rpcaddr", "0.0.0.0", "--rpc", "--rpccorsdomain", "*", "js", "./js/mining.js"]
