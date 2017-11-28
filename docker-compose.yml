@@ -1,0 +1,11 @@
+version: '3'
+services:
+  geth:
+    build: .
+    volumes:
+      - blockchain:/app/blockchain
+    ports:
+      - 30303:30303
+      - 8545:8545
+volumes:
+  blockchain:
