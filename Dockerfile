@@ -22,7 +22,6 @@ ENV NODE_ENV production
 
 # How many accounts to create
 ENV GETH_ACCOUNT_TOTAL 5
-
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
@@ -55,14 +54,20 @@ RUN for i in $(seq 1 $GETH_ACCOUNT_TOTAL); do geth --datadir blockchain --passwo
 
 RUN geth  --datadir blockchain account list
 
-RUN ./prepare_genesis
+ARG NETWORK_ID
+
+RUN echo $NETWORK_ID
+
+RUN NETID=$NETWORK_ID ./prepare_genesis
+
+RUN cat ./config/genesis.json
+
 # Apparently `account new` will create a DB with an incompatible block
 
 RUN rm -rf blockchain/geth/chaindata/*
 
 RUN geth --datadir blockchain init config/genesis.json
 
-RUN cat ./config/genesis.json
 
 # this line will check if your account has the ethers specified into genesis.json>alloc
 # RUN geth --datadir . --dev --exec "eth.getBalance(eth.coinbase)" console
@@ -78,4 +83,4 @@ EXPOSE 30303
 
 #CMD tail -F -n0 /etc/hosts
 
-CMD ["/usr/bin/geth",  "--datadir", "blockchain", "--password", "config/password.txt", "--unlock", "0,1,2,3,4", "--rpc", "--rpcaddr", "0.0.0.0", "--rpc", "--rpccorsdomain", "*", "js", "./js/mining.js"]
+CMD ["/usr/bin/geth",  "--datadir", "blockchain", "--password", "config/password.txt", "--unlock", "0,1,2,3,4", "--rpc", "--rpcaddr", "0.0.0.0", "--rpc", "--rpccorsdomain", "*", "js", "./js/mining.js", "--networkid","144"]

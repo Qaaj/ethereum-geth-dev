@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build -t mordhau/ethereum-geth-dev .
+docker build --build-arg NETWORK_ID=144 -t mordhau/ethereum-geth-dev .
